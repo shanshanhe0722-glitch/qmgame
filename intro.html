@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>青州大学 - 学校简介</title>
+    <style>
+        :root {
+            /* 青州大学主题色 */
+            --qz-blue: #004c99; 
+            --qz-gold: #c39d67;
+            --text-dark: #333;
+            --text-light: #fff;
+            --bg-light: #f5f5f5;
+            --link-hover: #1e88e5;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+        }
+
+        body {
+            line-height: 1.8; /* 简介页文字行距稍大，易读 */
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            font-size: 16px;
+        }
+
+        /* --- 通用页头结构（模拟） --- */
+        .page-header {
+            background-color: var(--qz-blue);
+            color: var(--text-light);
+            padding: 40px 0;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .page-header h1 {
+            font-size: 2.5em;
+            font-weight: 500;
+        }
+        /* --- 主导航栏 --- */
+        .navbar {
+            background-color: var(--qz-blue);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-list {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+            margin: 0 auto;
+            max-width: 1400px;
+        }
+
+        .nav-list a {
+            display: block;
+            padding: 15px 25px;
+            color: var(--text-light);
+            font-size: 1.1em;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+
+        .nav-list a:hover {
+            background-color: var(--qz-gold);
+            color: var(--text-dark);
+        }
+        
+        /* --- 主体内容布局 --- */
+        .main-container {
+            width: 80%;
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px 60px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        /* --- 侧边栏/二级导航（模拟） --- */
+        .content-wrapper {
+            display: flex;
+            gap: 30px;
+        }
+
+        .sidebar {
+            flex: 0 0 200px; /* 固定宽度 */
+            padding-top: 10px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .sidebar a {
+            display: block;
+            padding: 12px 15px;
+            border-bottom: 1px solid #eee;
+            font-size: 0.95em;
+            color: var(--text-dark);
+        }
+        
+        .sidebar a:hover, .sidebar .active {
+            background-color: #f0f0f0;
+            color: var(--qz-blue);
+            font-weight: 600;
+        }
+        .sidebar .active {
+            border-left: 4px solid var(--qz-blue);
+            padding-left: 11px;
+        }
+
+        /* --- 简介主体部分 --- */
+        .main-content-body {
+            flex: 1;
+        }
+
+        .section-title {
+            font-size: 1.8em;
+            color: var(--qz-blue);
+            border-bottom: 2px solid var(--qz-blue);
+            padding-bottom: 8px;
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+        
+        .section-title:first-child {
+            margin-top: 0;
+        }
+
+        .main-content-body p {
+            text-indent: 2em; /* 首行缩进 */
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        /* --- 数据展示块 --- */
+        .data-block {
+            display: flex;
+            justify-content: space-around;
+            background-color: var(--bg-light);
+            padding: 20px;
+            border-radius: 6px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        .data-item h3 {
+            color: var(--qz-gold);
+            font-size: 2.2em;
+            margin-bottom: 5px;
+        }
+        .data-item p {
+            color: var(--qz-blue);
+            font-size: 1em;
+            text-indent: 0;
+        }
+
+        /* --- 底部页脚（模拟） --- */
+        .footer {
+            background-color: #333;
+            color: #ccc;
+            padding: 20px;
+            text-align: center;
+            font-size: 0.85em;
+            margin-top: 40px;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <ul class="nav-list">
+            <li><a href="#">首页</a></li>
+            <li><a href="#">学校概况</a></li>
+            <li><a href="#">人才培养</a></li>
+            <li><a href="#">科学研究</a></li>
+            <li><a href="#">招生就业</a></li>
+            <li><a href="#">国际交流</a></li>
+            <li><a href="#">机构设置</a></li>
+            <li><a href="#">公共服务</a></li>
+        </ul>
+    </nav>
+
+    <div class="page-header">
+        <h1>学校简介</h1>
+        <p>GENERAL SITUATION</p>
+    </div>
+
+    <div class="main-container">
+        <div class="content-wrapper">
+            
+            <div class="sidebar">
+                <ul>
+                    <li><a href="#" class="active">学校简介</a></li>
+                    <li><a href="#">历史沿革</a></li>
+                    <li><a href="#">现任领导</a></li>
+                    <li><a href="#">校园风光</a></li>
+                    <li><a href="#">校徽校训</a></li>
+                </ul>
+            </div>
+
+            <div class="main-content-body">
+                
+                <h2 class="section-title">基本概况</h2>
+                <p>
+                    青州大学（Qingzhou University），简称“青大”，位于历史文化名城青州市，是教育部直属的全国重点大学，国家“双一流”建设高校。学校创办于1902年，前身是青州高等学堂，是国内最早的现代大学之一。历经百廿耕耘，青州大学秉承“启智明德，融会贯通”的校训精神，已发展成为一所综合性、研究型、国际化的知名高等学府。
+                </p>
+                <p>
+                    学校现有哲学、经济学、法学、教育学、文学、历史学、理学、工学、医学、管理学、艺术学等11大学科门类，构建了以优势学科为核心、多学科交叉融合、协调发展的学科体系。学校下设35个学院（部），在校生约 40,000 人，其中全日制本科生约 25,000 人，研究生约 15,000 人。
+                </p>
+                
+                <div class="data-block">
+                    <div class="data-item">
+                        <h3>1902</h3>
+                        <p>建校年份</p>
+                    </div>
+                    <div class="data-item">
+                        <h3>11</h3>
+                        <p>学科门类</p>
+                    </div>
+                    <div class="data-item">
+                        <h3>40,000+</h3>
+                        <p>在校学生总数</p>
+                    </div>
+                    <div class="data-item">
+                        <h3>15</h3>
+                        <p>国家级重点学科</p>
+                    </div>
+                </div>
+
+                <h2 class="section-title">人才队伍与学科建设</h2>
+                <p>
+                    学校坚持“人才强校”战略，大力引进海内外优秀学者，师资队伍结构合理、素质优良。现有教职工 5,000 余人，其中专任教师 3,000 余人。拥有院士、国家级人才计划入选者、长江学者等各类国家级人才近 200 人次。
+                </p>
+                <p>
+                    青州大学在多项国际学科评估中表现突出，化学、材料科学、工程学、临床医学等 4 个学科进入 ESI 全球排名前 1‰，计算机科学、经济学、法学等多个学科在国内居于领先地位。学校积极推动产学研合作，承担了多项国家重大科技项目，为地方经济社会发展贡献了“青大智慧”。
+                </p>
+                
+                <h2 class="section-title">校园环境与国际交流</h2>
+                <p>
+                    学校拥有三个现代化校区，占地面积约 3,000 亩，建筑面积超过 150 万平方米。校园环境优美，设施一流，拥有亚洲最大的大学图书馆之一、多个国家级重点实验室和高水平体育场馆。
+                </p>
+                <p>
+                    学校积极开展国际交流与合作，与全球 50 多个国家和地区的 300 余所高校及科研机构建立了合作关系，每年派出大量师生赴海外交流学习。致力于培养具有国际视野、跨文化交流能力和社会责任感的精英人才。
+                </p>
+
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        青州大学党委宣传部出品 | 青ICP备 19000001号-1
+    </footer>
+
+</body>
+</html>
