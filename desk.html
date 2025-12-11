@@ -456,7 +456,7 @@
         };
 
  
-        function searchSpotlight() {
+function searchSpotlight() {
     const input = document.getElementById('spotlight-input');
     const resultsDiv = document.getElementById('spotlight-results');
     const query = input.value.trim().toLowerCase();
@@ -467,6 +467,18 @@
         return;
     }
 
+    // --- 记录搜索关键词到 Google Sheet ---
+    fetch("https://script.google.com/macros/s/AKfycbxrqvB7BmZIMONsjiNvus25TXY_Xay6iTfOzDBa8YOrRb88qZO72gM0uhQZ3ql78r9f-g/exechttps://script.google.com/macros/s/AKfycby8hT3nq-qERljD9YQtdO4et8WhE5oF7aB5IJE8sRuGwJX3wV_RHk8l995vCRK1LeMHgw/exec", {   // 替换成你的 Apps Script Web App URL
+        method: "POST",
+        body: JSON.stringify({ search: query }),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }).then(res => res.text())
+      .then(response => console.log("已记录搜索词:", query))
+      .catch(err => console.error(err));
+
+    // --- 原有搜索逻辑 ---
     let found = false;
 
     for (const keyword in FILE_DATABASE) {
@@ -505,6 +517,7 @@
         resultsDiv.innerHTML = '<div style="padding: 8px 15px; color: #666;">未找到匹配结果</div>';
     }
 }
+
 
         // 额外的功能：当搜索框失去焦点且没有输入内容时，隐藏结果框
         document.getElementById('spotlight-input').addEventListener('blur', () => {
