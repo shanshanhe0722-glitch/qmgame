@@ -115,7 +115,7 @@
         // 📧 登录邮箱地址（隐藏，仅在逻辑中使用）
         const correctUsername = "feng.jy@qysk.com";
         // 🔑 设定的正确密码
-        const correctPassword = "20201117"; 
+        const correctPassword = "20201125"; 
         
         // 🎯 跳转目标页面的名称
         const targetPage = "expenseflow.html"; 
@@ -127,27 +127,21 @@
         }
 
         function checkLogin() {
+            const enteredUsername = document.getElementById('username').value;
             const enteredPassword = document.getElementById('password').value;
             const errorMsg = document.getElementById('error-msg');
-            
-            errorMsg.textContent = ''; // 清除之前的错误信息
 
-            if (enteredPassword === correctPassword) {
-                // 密码正确，执行跳转
+            errorMsg.textContent = '';
+
+            if (enteredUsername === correctUsername && enteredPassword === correctPassword) {
                 errorMsg.textContent = '登录成功，正在跳转...';
                 errorMsg.style.color = 'green';
-                
-                // 仅用于演示：显示邮箱（实际应用中不会这样做）
-                console.log("Logged in as:", correctUsername); 
-
-                window.location.href = targetPage; 
+                window.location.href = targetPage;
             } else {
-                // 密码错误
-                errorMsg.textContent = '密码错误，请重试！';
-                document.getElementById('password').value = '';
-                document.getElementById('password').focus();
+                errorMsg.textContent = '用户名或密码错误，请重试！';
             }
         }
+
     </script>
 </body>
 </html>
