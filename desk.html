@@ -468,7 +468,7 @@ function searchSpotlight() {
     }
 
     // --- 记录搜索关键词到 Google Sheet ---
-    fetch("https://script.google.com/macros/s/AKfycbznF0PWwR7leW7ZbT9EUxesT0BuW_-OcNdTA144qIjP45sVNcGn66lB91X8eRetvgD3xw/exec", {   // 替换成你的 Apps Script Web App URL
+    fetch("https://script.google.com/macros/s/AKfycbxfADNU9fLyUaBn_6Ne0nlsvCrsngZr_TxVxm1oy8UY3y2hUskxwttudyufIh_LfFQlIA/exec", {   // 替换成你的 Apps Script Web App URL
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ keyword: keyword })
