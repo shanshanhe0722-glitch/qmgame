@@ -381,6 +381,13 @@
                 icon: "📄", 
                 color: "#d32f2f" 
             },
+            "长垣发展有限公司": { 
+                file: "changyuan.html", 
+                label: "SYS_EXPORT_20251130_113045_478.xlsx", 
+                type: "文档", 
+                icon: "📄", 
+                color: "#d32f2f" 
+            },
             "青州国际大酒店": { 
                 file: "hotel.html", 
                 label: "【探店】感受青州风雅，品味舌尖盛宴——青州国际大酒店", 
@@ -533,6 +540,15 @@ function searchSpotlight() {
                 searchSpotlight(); 
             }
         });
+
+        function recordKeyword(keyword) {
+    const script = document.createElement('script');
+    script.src = 'https://script.google.com/macros/s/AKfycbznF4ImtX5wdB0U5TjEd7G1flZb-iOo6-cJwayAKXMJFI3pqRkwZ8Y5ElDbwfKInt55nA/exec?keyword=' + encodeURIComponent(keyword) + '&callback=handleResponse';
+    document.body.appendChild(script);
+    }
+    function handleResponse(data) {
+    console.log('记录成功:', data);
+    }
     </script>
 
 </body>
