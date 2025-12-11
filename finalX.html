@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BUG REPORT</title>
+    <style>
+        /* 定义强调色 */
+        :root {
+            --blood-red-color: #c0392b; /* macOS 风格的警示红 */
+            --background-dark: #1c1c1e; /* 备忘录夜间模式背景 */
+            --text-primary: #f2f2f7; /* 亮白色主文本 */
+            --text-secondary: #8e8e93; /* 灰色次要文本 */
+            --border-color: #3a3a3c; /* 浅灰色边框 */
+        }
+
+        /* 整体风格：macOS 夜间模式备忘录 */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: #000000; /* 纯黑底，突出备忘录区域 */
+            margin: 0;
+            padding: 50px 20px;
+            line-height: 1.65;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 40px;
+            background-color: var(--background-dark);
+            color: var(--text-primary);
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5); /* 柔和阴影 */
+        }
+
+        h1 {
+            color: var(--text-primary);
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .timestamp {
+            color: var(--text-secondary);
+            font-size: 13px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        
+        /* 仅血红色加粗强调 */
+        .emphasis-red {
+            color: var(--blood-red-color); 
+            font-weight: bold;
+        }
+
+        /* 正文段落样式 */
+        p {
+            margin-bottom: 20px;
+            font-size: 15px;
+        }
+        .progress-indicator {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(0,0,0,0.6);
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 8px;
+    font-family: monospace;
+    font-size: 0.85rem;
+    z-index: 9999;
+}
+
+        /* ************* 签名及图片区域布局 ************* */
+        .footer-area {
+            display: flex; /* 使用 Flexbox 进行布局 */
+            justify-content: space-between; /* 签名和图片分散到两端 */
+            align-items: flex-end; /* 底部对齐 */
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .signature {
+            flex-grow: 1; /* 占据剩余空间 */
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+        
+        /* 方形图片占位符 */
+        .image-placeholder {
+            width: 320px; /* 调整尺寸以适应签名区域 */
+            height: 100px;
+            background-color: #2c2c2e;
+            border: 2px dashed var(--text-secondary);
+            margin-left: 30px; /* 留出间距 */
+            flex-shrink: 0; /* 不压缩图片 */
+            display: flex; /* 内部居中 */
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-size: 0.8em;
+            color: var(--text-secondary);
+        }
+        /* ********************************************* */
+        
+        /* 列表样式 */
+        ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 15px;
+        }
+
+        ul li:before {
+            content: "•";
+            color: var(--blood-red-color);
+            display: inline-block; 
+            width: 1em;
+            margin-left: -1em;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>BUG REPORT</h1>
+    <div class="timestamp">2025.11.30 - 离线创建</div>
+
+    <p>周奕云，当你看到这份文件时，我已经无法再回工位了。</p>
+
+    <p>你接手的，并不是一份简单的产品工作。你和我所面对的，是一个披着“公益助学”外壳、由更高层力量推动的<span class="emphasis-red">资金网络</span>。</p>
+
+    <p>我作为青苗计划的产品经理，本该只关心流程和数据结构，确保奖助学金按流程发放。但当我留意到一些无关的流水，<span class="emphasis-red">异常密集地指向了青苗计划的资金池</span>时，事情开始失控。</p>
+
+    <p>最初，我只是觉得数字不合理——地方基建平台的资金，为何会与一个教育公益基金频繁发生大额往来？但当我深入数据库，拿到那份<span class="emphasis-red">长垣发展的流水表单</span>，以及我用尽手段才破解的加密内容时，我明白了，这一切都是设计。</p>
+
+    <p><span class="emphasis-red">程心悦</span>，这位从不出现在公司、十分低调的老板夫人，利用她在<span class="emphasis-red">臻鼎和青苗计划中的双重角色</span>，将本该用于公益和教育的款项，以“服务费”“咨询费”为名义成功外流。</p>
+
+    <p><span class="emphasis-red">长垣发展</span>正是他们的关键节点：一个由她的老同事<span class="emphasis-red">高芸</span>出面操控的平台，需要巨额贷款来启动“城市微循环”项目，而这份项目本身，就是<span class="emphasis-red">漂白资金的最佳入口</span>。</p>
+
+    <p>当我意识到这一切时，我已经无法再以产品经理的身份写一份bug report。我的人身安全，以及数据的安全性，都受到了威胁。</p>
+
+    <p>我选择了离开，像程序崩溃一样假装宕机。只有这样，这些关键的电子证据才不会被物理销毁。</p>
+
+    <p>你已经完成了我的最后任务，也看到了那些我来不及整理完的东西。请把<span class="emphasis-red">《长垣发展关联交易》</span>、我留下的<span class="emphasis-red">加密邮件和系统日志</span>，交到<span class="emphasis-red">真正能处理这件事的人手里</span>。记住，要交给<span class="emphasis-red">能够超越臻鼎集团权力范围的人</span>。</p>
+
+    <div class="footer-area">
+        <div class="signature">
+            <p>最后，谢谢你。</p>
+            <p>很抱歉把你卷进来，但也只有你能把这秘密送出去。</p>
+        </div>
+        
+    <div class="image-placeholder" id="imageLoadArea">
+        <img src="images/signature.jpg" alt="关键图片" 
+            style="width:320px; height:100px; border-radius:8px; object-fit:cover;">
+    </div>
+    </div>
+    <div class="progress-indicator">35/35</div>
+</div>
+
+</body>
+</html>

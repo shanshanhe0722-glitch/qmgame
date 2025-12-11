@@ -89,6 +89,19 @@
             font-size: 14px;
             min-height: 20px;
         }
+        .progress-indicator {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(0,0,0,0.6);
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 8px;
+    font-family: monospace;
+    font-size: 0.85rem;
+    z-index: 9999;
+}
+
     </style>
 </head>
 <body>
@@ -110,7 +123,7 @@
 
         <div id="error-msg" class="error-message"></div>
     </div>
-
+<div class="progress-indicator">17/35</div>
     <script>
         // 📧 登录邮箱地址（隐藏，仅在逻辑中使用）
         const correctUsername = "feng.jy@qysk.com";
@@ -138,7 +151,7 @@
                 errorMsg.style.color = 'green';
                 window.location.href = targetPage;
             } else {
-                errorMsg.textContent = '用户名或密码错误，请重试！';
+                errorMsg.textContent = '【系统当前只对财务部门开放】用户名或密码错误，请重试！';
             }
         }
 

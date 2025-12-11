@@ -16,6 +16,18 @@
             align-items: center;
             height: 100vh;
         }
+.progress-indicator {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(0,0,0,0.6);
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 8px;
+    font-family: monospace;
+    font-size: 0.85rem;
+    z-index: 9999;
+}
 
         /* 登录卡片容器 */
         .login-container {
@@ -167,6 +179,7 @@
         </div>
 
     </div>
+    <div class="progress-indicator">22/35</div>
 
     <script>
         function attemptLogin() {
@@ -187,7 +200,7 @@
                 window.location.href = "weiboWb$2025*xZ.html";
             } else {
                 // 校验失败：显示错误信息
-                errorMessageDiv.textContent = "账号或密码错误，请重试。";
+                errorMessageDiv.textContent = "账号或密码错误，请重试。- Use it wisely";
             }
         }
     </script>

@@ -230,6 +230,19 @@
             margin-bottom: 5px;
             text-align: left;
         }
+
+        .progress-indicator {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(0,0,0,0.6);
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 8px;
+    font-family: monospace;
+    font-size: 0.85rem;
+    z-index: 9999;
+}
     </style>
 </head>
 <body>
@@ -322,6 +335,7 @@
         </a>
     </div>
 
+    <div class="progress-indicator">1/35</div>
     <script>
         // 1. 关键词库：关键词 (key) -> 文件名 (value)
         const FILE_DATABASE = {

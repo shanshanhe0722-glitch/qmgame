@@ -70,7 +70,18 @@
             display: flex;
             min-height: 0;         /* flex 容器滚动需要 */
         }
-
+.progress-indicator {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(0,0,0,0.6);
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 8px;
+    font-family: monospace;
+    font-size: 0.85rem;
+    z-index: 9999;
+}
         /* 左侧播放器 */
         .player-interface {
             width: 400px;
@@ -148,6 +159,7 @@
             </div>
             <div class="app-title">A2U836_行车记录20241020.mp3</div>
         </div>
+        <div class="progress-indicator">26/35</div>
 
         <div class="playback-content">
             <!-- 左侧播放器 -->
@@ -164,6 +176,7 @@
                     <span class="control-button" style="font-size: 20px;">🔊</span>
                 </div>
             </div>
+            
 
             <!-- 右侧转录 -->
             <div class="transcript-viewer">

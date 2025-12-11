@@ -21,6 +21,18 @@
             gap: 40px;
             flex-wrap: wrap;
         }
+.progress-indicator {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(0,0,0,0.6);
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 8px;
+    font-family: monospace;
+    font-size: 0.85rem;
+    z-index: 9999;
+}
 
         /* 证件容器：正页和副页统一尺寸 450px x 280px */
         .license-card {
@@ -202,6 +214,7 @@
         </div>
 
     </div>
+    <div class="progress-indicator">24/35</div>
 
     <div class="license-card secondary-license">
         <div class="watermark">交通管理局</div>

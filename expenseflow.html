@@ -340,7 +340,18 @@
             font-size: 16px;
             margin-bottom: 10px;
         }
-        
+        .progress-indicator {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(0,0,0,0.6);
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 8px;
+    font-family: monospace;
+    font-size: 0.85rem;
+    z-index: 9999;
+}
         /* 模拟行程单样式 */
         .trip-sheet {
             border: 1px solid #999;
@@ -602,6 +613,7 @@
             <p style="text-align: right; margin-top: 20px; font-size: 12px; color: #777;">*此功能仅限系统安全审计员访问。*</p>
         </div>
     </div>
+    <div class="progress-indicator">28/35</div>
 
     <script>
         const analysisModal = document.getElementById('analysisModal');

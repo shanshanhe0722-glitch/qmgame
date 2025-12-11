@@ -152,6 +152,19 @@
             background: var(--baiduyun-blue);
             color: white;
         }
+        .progress-indicator {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(0,0,0,0.6);
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 8px;
+    font-family: monospace;
+    font-size: 0.85rem;
+    z-index: 9999;
+}
+
     </style>
 </head>
 <body>
@@ -250,6 +263,7 @@
         </div>
     </div>
 
+    <div class="progress-indicator">25/35</div>
     <div id="password-modal" class="modal-overlay">
         <div class="modal-content">
             <h3>请输入密码</h3>

@@ -268,7 +268,22 @@
             /* 保持锁图标，但改为灰色或删除，这里我保留了图标但去掉了红色 */
             color: #666; 
         }
-         /* 覆盖全局层，最顶层浮层 */
+
+    .progress-indicator {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(0,0,0,0.6);
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 8px;
+    font-family: monospace;
+    font-size: 0.85rem;
+    z-index: 9999;
+}
+
+         
+    /* --- 覆盖全局层，最顶层浮层 (修改) --- */
     .suspense-overlay {
         position: fixed;
         top: 0;
@@ -278,6 +293,7 @@
         background: black;
         opacity: 0;
         display: flex;
+        flex-direction: column; /* 调整为列布局以垂直居中 */
         justify-content: center;
         align-items: center;
         z-index: 3000;
@@ -285,8 +301,10 @@
         transition: opacity 3s ease-in;
     }
 
+
     .suspense-overlay.active {
         opacity: 1;
+        pointer-events: auto; /* 激活时允许交互 */
     }
 
     .suspense-text {
@@ -299,15 +317,44 @@
         animation: fadeInText 2s forwards 3s; /* 3秒后淡入 */
         text-align: center;
     }
+      
+    /* 新增：将按钮改为链接样式 */
+    .suspense-link { 
+        margin-top: 20px;
+        padding: 12px 24px;
+        font-size: 1.2rem;
+        cursor: pointer;
+        background: black;
+        border: 2px solid white; /* 稍微加强边界感 */
+        border-radius: 5px;
+        color: white;
+        text-decoration: none; /* 移除默认的下划线 */
+        font-weight: bold;
+        display: inline-block; /* 允许设置 padding 和 margin */
+        opacity: 0;
+        transition: background 0.2s, opacity 0.5s;
+        /* 在文本出现后0.5秒淡入 */
+        animation: fadeInLink 1s forwards 5s; 
+    }
+    .suspense-link:hover {
+        background: #333; /* 悬停时稍微改变背景色 */
+        border-color: #f39c12; /* 突出提示 */
+    }
 
     @keyframes fadeInText {
         from { opacity: 0; transform: scale(0.9); }
         to { opacity: 1; transform: scale(1); }
     }
+
+    @keyframes fadeInLink {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
+     <div class="progress-indicator">34/35</div>
 
     <div class="mac-menubar">
         <div class="menubar-left">
@@ -355,6 +402,7 @@
             <button><i class="fas fa-filter"></i> 数据</button>
             <button><i class="fas fa-lock"></i> 审阅</button>
         </div>
+
         
         <div class="grid-area">
             <table class="spreadsheet" id="spreadsheet-data">
@@ -418,6 +466,10 @@
                 fileAccessModal.style.display = 'none'; // 隐藏权限模态框
                 excelApp.classList.add('unlocked'); // 解锁 Excel 样式
                 switchSheet('长垣发展有限公司'); // 成功解锁后，默认加载第一个 Sheet 的数据
+                
+                // 开启悬疑倒计时 (解锁后启动计时器)
+                startSuspenseTimer();
+
             } else {
                 // 验证失败
                 accessErrorMessage.textContent = "姓名或卡号后4位不正确。";
@@ -688,48 +740,21 @@
         }
         // 确保在 Excel 未解锁时不执行初始 Sheet 切换，留给 checkFileAccess() 执行
         // switchSheet('长垣发展有限公司'); 
-    </script>
-    <div class="suspense-overlay" id="suspenseOverlay">
-    <div class="suspense-text">你已找到许思默的失踪真相</div>
-</div>
-
-<script>
-    // 当 Excel 解锁后开始计时
-    function startSuspenseTimer() {
-        // 5秒后触发页面渐暗
-        setTimeout(() => {
-            const overlay = document.getElementById('suspenseOverlay');
-            overlay.classList.add('active'); // 逐渐变暗
-        }, 10000); // 5秒
-    }
-
-    // 修改 checkFileAccess 函数，解锁后启动悬疑倒计时
-    function checkFileAccess() {
-        const name = accessNameInput.value.trim();
-        const card = accessCardInput.value.trim();
-
-        if (name === CORRECT_NAME && card === CORRECT_CARD_LAST_FOUR) {
-            accessErrorMessage.textContent = "";
-            fileAccessModal.style.display = 'none';
-            excelApp.classList.add('unlocked');
-            switchSheet('长垣发展有限公司');
-            // 开启悬疑倒计时
-            startSuspenseTimer();
-        } else {
-            accessErrorMessage.textContent = "姓名或卡号后4位不正确。";
-            fileAccessModal.querySelector('.access-modal-content').animate([
-                { transform: 'translateX(0)' },
-                { transform: 'translateX(-5px)' },
-                { transform: 'translateX(5px)' },
-                { transform: 'translateX(-5px)' },
-                { transform: 'translateX(5px)' },
-                { transform: 'translateX(0)' }
-            ], {
-                duration: 300,
-                easing: 'ease-in-out'
-            });
+        
+        // 当 Excel 解锁后开始计时
+        function startSuspenseTimer() {
+            // 10秒后触发页面渐暗
+            setTimeout(() => {
+                const overlay = document.getElementById('suspenseOverlay');
+                overlay.classList.add('active'); // 逐渐变暗
+            }, 10000); // 10秒
         }
-    }
-</script>
+    </script>
+    
+    <div class="suspense-overlay" id="suspenseOverlay">
+        <div class="suspense-text">ERROR 404</div>
+         <a href="finalX.html" id="goNewPageLink" class="suspense-link">🔔</a>
+    </div>
+
 </body>
 </html>

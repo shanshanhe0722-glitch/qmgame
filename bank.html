@@ -155,7 +155,18 @@
             /* ... (其他样式保持不变) */
         }
         /* ... (省略了与上次代码相同的嵌入内容样式，以节省篇幅) */
-
+.progress-indicator {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(0,0,0,0.6);
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 8px;
+    font-family: monospace;
+    font-size: 0.85rem;
+    z-index: 9999;
+}
         .award-card {
             display: flex;
             align-items: flex-start;
@@ -229,7 +240,7 @@
             </div>
             <nav class="main-menu">
                 <ul>
-                    <li><a href="index.html">首页</a></li>
+                    <li><a href="#">首页</a></li>
                     <li><a href="#">个人业务</a></li>
                     <li><a href="#">企业业务</a></li>
                     <li><a href="#">关于银行</a></li>
@@ -238,6 +249,7 @@
             </nav>
         </div>
     </header>
+    <div class="progress-indicator">33/35</div>
 
     <div class="full-width-banner">
         <div class="banner">
@@ -278,9 +290,7 @@
                 <span>发布日期：2015年5月10日</span>
             </div>
             
-            <div class="image-placeholder">
-                
-            </div>
+<img src="images/bank.jpg" alt="青州银行新闻图片" style="width:100%; max-width:600px; height:auto; display:block; margin:25px auto; border-radius:8px;">
 
             <p>近日，青州银行2015半年度“感动青银”员工颁奖典礼在总行隆重举行。此次评选活动是为表彰基层员工的感人事迹、推进企业文化建设的一项重要举措，旨在发现并弘扬那些在平凡岗位上做出不平凡贡献的优秀代表。</p>
 
@@ -324,15 +334,9 @@
             </div>
 
             <p>在近两个小时的颁奖典礼中，会场不时响起阵阵热烈的掌声，许多员工被那些感人至深的故事所触动。青州银行将继续以这些模范为榜样，激发全行员工的拼搏精神和奉献精神。</p>
-
-            <div class="image-placeholder">
                 
             </div>
 
-            <div class="article-footer">
-                <p>致敬所有奋斗者！青州银行因你们而骄傲！</p>
-                <p style="font-size: 12px; color: #888;">#感动青银 #企业文化 #卓越与奉献</p>
-            </div>
 
         </main>
 

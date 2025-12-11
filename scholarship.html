@@ -14,6 +14,18 @@
             display: flex;
             justify-content: center;
         }
+        .progress-indicator {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(0,0,0,0.6);
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 8px;
+    font-family: monospace;
+    font-size: 0.85rem;
+    z-index: 9999;
+}
         .document-page {
             width: 750px;
             min-height: 900px;
@@ -90,6 +102,7 @@
     </style>
 </head>
 <body>
+    <div class="progress-indicator">20/35</div>
 
     <div class="document-page">
 

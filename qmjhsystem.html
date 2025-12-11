@@ -36,7 +36,18 @@
             margin-bottom: 20px;
             font-size: 32px;
         }
-
+.progress-indicator {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(0,0,0,0.6);
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 8px;
+    font-family: monospace;
+    font-size: 0.85rem;
+    z-index: 9999;
+}
         .notice-container p {
             color: var(--text-color);
             margin-bottom: 30px;
@@ -61,6 +72,7 @@
     </style>
 </head>
 <body>
+    <div class="progress-indicator">16/35</div>
 
     <div class="notice-container" id="noticeBox">
         <h1>系统暂停访问通知</h1>
