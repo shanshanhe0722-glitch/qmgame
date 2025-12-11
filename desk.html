@@ -468,16 +468,14 @@ function searchSpotlight() {
     }
 
     // --- 记录搜索关键词到 Google Sheet ---
-    fetch("https://script.google.com/macros/s/AKfycbxrqvB7BmZIMONsjiNvus25TXY_Xay6iTfOzDBa8YOrRb88qZO72gM0uhQZ3ql78r9f-g/exechttps://script.google.com/macros/s/AKfycby8hT3nq-qERljD9YQtdO4et8WhE5oF7aB5IJE8sRuGwJX3wV_RHk8l995vCRK1LeMHgw/exec", {   // 替换成你的 Apps Script Web App URL
-        method: "POST",
-        body: JSON.stringify({ search: query }),
-        headers: {
-            "Content-Type": "application/json"
-        }
-    }).then(res => res.text())
-      .then(response => console.log("已记录搜索词:", query))
-      .catch(err => console.error(err));
-
+    fetch("https://script.google.com/macros/s/AKfycbznF0PWwR7leW7ZbT9EUxesT0BuW_-OcNdTA144qIjP45sVNcGn66lB91X8eRetvgD3xw/exec", {   // 替换成你的 Apps Script Web App URL
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ keyword: keyword })
+        })
+        .then(res => res.json())
+        .then(data => console.log("记录成功:", data))
+        .catch(err => console.error("记录失败:", err));
     // --- 原有搜索逻辑 ---
     let found = false;
 
