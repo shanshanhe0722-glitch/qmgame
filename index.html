@@ -108,18 +108,18 @@
         }
 
         /* —— 悬浮签名图片 —— */
-        .floating-signature {
-            position: fixed;
-            right: 48px;
-            bottom: 36px;
-            width: 280x;   /* 原 320 的 1/2 */
-            height: 88px;   /* 原 100 的 1/2 */
-            border-radius: 999px; /* 圆弧 / 胶囊 */
-            overflow: hidden;
-            opacity: 0.85;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.25);
-            transition: opacity 0.3s ease;
-        }
+            .floating-signature {
+                position: fixed;
+                right: 48px;
+                bottom: 36px;
+                width: 260px;
+                height: 81px;
+                overflow: hidden;
+
+                clip-path: inset(0 round 50px);
+
+                box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+            }
 
         .floating-signature:hover {
             opacity: 1;
