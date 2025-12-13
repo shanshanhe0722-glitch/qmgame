@@ -25,6 +25,7 @@
             align-items: center;
             background: linear-gradient(180deg, #f5f6f8, #e3e6ea);
             color: var(--text-main);
+            overflow: hidden;
         }
 
         .container {
@@ -49,7 +50,6 @@
             font-weight: 600;
             margin-bottom: 28px;
             color: #1f2937;
-            letter-spacing: 0.5px;
         }
 
         p {
@@ -68,21 +68,16 @@
             display: inline-flex;
             align-items: center;
             gap: 12px;
-
             padding: 12px 44px;
             font-size: 16px;
             font-weight: 500;
-
             color: #2b2b2b;
             background: linear-gradient(to bottom, #f9f9f9, #d5d5d5);
-
             border: 1px solid #bdbdbd;
             border-radius: 999px;
-
             box-shadow:
                 inset 0 1px 0 rgba(255,255,255,0.7),
                 0 1px 2px rgba(0,0,0,0.18);
-
             cursor: pointer;
             transition: all 0.15s ease;
         }
@@ -93,8 +88,7 @@
 
         .mac-login-btn:active {
             background: linear-gradient(to bottom, #c4c4c4, #e5e5e5);
-            box-shadow:
-                inset 0 2px 4px rgba(0,0,0,0.25);
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.25);
             transform: translateY(1px);
         }
 
@@ -111,41 +105,71 @@
             text-align: center;
             font-size: 13px;
             color: #888;
-            letter-spacing: 0.4px;
+        }
+
+        /* —— 悬浮签名图片 —— */
+        .floating-signature {
+            position: fixed;
+            right: 48px;
+            bottom: 36px;
+            width: 280x;   /* 原 320 的 1/2 */
+            height: 88px;   /* 原 100 的 1/2 */
+            border-radius: 999px; /* 圆弧 / 胶囊 */
+            overflow: hidden;
+            opacity: 0.85;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+            transition: opacity 0.3s ease;
+        }
+
+        .floating-signature:hover {
+            opacity: 1;
+        }
+
+        .floating-signature img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
     </style>
 </head>
+
 <body>
 
-<div class="container">
-    <h1>404工位消失事件</h1>
+    <div class="container">
+        <h1>404工位消失事件</h1>
 
-    <p>你是<strong>江奕云</strong>，大二开学后，在大学附近找了家校企单位做互联网产品实习。幸运的是，你被分配到了一位校友当mentor，他让你主要负责支持项目的数据分析和流程优化。<p>
-    <p>然而，这位mentor，<strong>许思默</strong>，从本周周一开始，突然消失了。</p>
+        <p>你是<strong>江奕云</strong>，大二开学后，在大学附近找了家校企单位做互联网产品实习。幸运的是，你被分配到了一位校友当 mentor，他让你主要负责支持项目的数据分析和流程优化。</p>
 
-    <p>工位一直空着，没有请假记录，私聊他的消息更是没有回复。</p>
+        <p>然而，这位 mentor，<strong>许思默</strong>，从本周周一开始，突然消失了。</p>
 
-    <p>为了不影响项目进度，部门负责人让你临时接手他的工作。</p>
+        <p>工位一直空着，没有请假记录，私聊他的消息更是没有回复。</p>
 
-    <p>你轻松登进了他的工作电脑，但却隐约感觉到，这里面保留着一些<strong>他来不及处理完的东西</strong>……</p>
+        <p>为了不影响项目进度，部门负责人让你临时接手他的工作。</p>
 
-    <p>🔔<em style="color: #888;">第一步，不妨试着从搜搜【你自己的名字】开始，祝你好运。</em></p>
+        <p>你轻松登进了他的工作电脑，但却隐约感觉到，这里面保留着一些<strong>他来不及处理完的东西</strong>……</p>
 
-    <div class="btn-wrap">
-        <button class="mac-login-btn" id="loginBtn">
-            <span class="mac-login-icon"></span>
-            登录
-        </button>
+        <p>🔔<em style="color:#888;">第一步，不妨试着从搜搜【你自己的名字】开始，祝你好运。</em></p>
+
+        <div class="btn-wrap">
+            <button class="mac-login-btn" id="loginBtn">
+                <span class="mac-login-icon"></span>
+                登录
+            </button>
+        </div>
+
+        <div class="hint">macOS Secure Access</div>
     </div>
 
-    <div class="hint">macOS Secure Access</div>
-</div>
+    <!-- 悬浮签名图片，不参与居中布局 -->
+    <div class="floating-signature">
+        <img src="images/signature.jpg" alt="关键签名">
+    </div>
 
-<script>
-    document.getElementById('loginBtn').addEventListener('click', function () {
-        window.location.href = 'desk.html';
-    });
-</script>
+    <script>
+        document.getElementById('loginBtn').addEventListener('click', () => {
+            window.location.href = 'desk.html';
+        });
+    </script>
 
 </body>
 </html>
