@@ -110,6 +110,12 @@
         .seal-text {
             line-height: 1.1;
         }
+          .blurred-name {
+        display: inline-block;
+        filter: blur(6px);
+        user-select: none;        /* 防止复制 */
+        pointer-events: none;     /* 防止选中 */
+    }
     </style>
 </head>
 <body>
@@ -127,7 +133,7 @@
 
         <div class="content">
             <p>
-                青州大学学位评定委员会根据《中华人民共和国学位条例》的规定，经审核通过，决定授予 <span class="name-highlight">魏东城</span> 同志 <span class="degree-highlight">工商管理硕士</span> 学位。
+                青州大学学位评定委员会根据《中华人民共和国学位条例》的规定，经审核通过，决定授予 <span class="name-highlight blurred-name">魏东城</span> 同志 <span class="degree-highlight">工商管理硕士</span> 学位。
             </p>
             <p>
                 该同志于 2013 年 9 月至 2015 年 7 月在我校工商管理学院在职学习，完成工商管理硕士（MBA）专业培养方案规定的全部课程和学位论文，考核成绩合格。
