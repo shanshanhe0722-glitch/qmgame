@@ -104,7 +104,52 @@
             color: var(--text-secondary);
         }
         /* ********************************************* */
-        
+                .next-chapter-teaser {
+            margin-top: 60px;
+            padding: 30px;
+            background: linear-gradient(180deg, rgba(192, 57, 43, 0.1) 0%, rgba(0,0,0,0.4) 100%);
+            border: 1px solid var(--blood-red-color);
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .teaser-title {
+            font-family: monospace;
+            color: var(--blood-red-color);
+            font-weight: bold;
+            font-size: 1.2em;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        .teaser-text {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+
+        .teaser-hook {
+            background-color: var(--blood-red-color);
+            color: white;
+            padding: 10px 20px;
+            display: inline-block;
+            border-radius: 4px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: transform 0.2s;
+        }
+
+        .teaser-hook:hover {
+            transform: scale(1.05);
+            background-color: #e74c3c;
+        }
+
+        .glitch-text {
+            font-size: 12px;
+            color: #444;
+            margin-top: 15px;
+            font-style: italic;
+        }
         /* 列表样式 */
         ul {
             list-style: none;
@@ -119,8 +164,71 @@
             width: 1em;
             margin-left: -1em;
         }
+        .floating-signature:hover {
+            opacity: 1;
+        }
+
+        .floating-signature img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+                .signature-image {
+            width: 160px;          /* 原 320 的 1/2 */
+            height: 50px;          /* 原 100 的 1/2 */
+            margin-left: 30px;
+            flex-shrink: 0;
+
+            background-image: url("images/signature.jpg");
+            background-size: cover;
+            background-position: center;
+
+            border-radius: 50px;   /* 胶囊 / 圆弧签名 */
+            box-shadow: 0 6px 16px rgba(0,0,0,0.35);
+
+            opacity: 0.9;
+            transition: opacity 0.3s ease;
+        }
+
+        .signature-image:hover {
+            opacity: 1;
+        }
+        .signature-text {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+
+            color: var(--text-secondary);
+            font-style: italic;
+            font-size: 14px;
+        }
+        .signature-image {
+    position: fixed;
+    left: 24px;
+    bottom: 24px;
+    width: 220px;
+    height: 70px;
+
+    background-image: url("images/signature.jpg");
+    background-size: cover;
+    background-position: center;
+
+    border-radius: 50px;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+
+    opacity: 0.85;
+    z-index: 999;
+}
+
+.signature-image:hover {
+    opacity: 1;
+}
+
+
+
     </style>
 </head>
+<div class="signature-image"></div>
 <body>
 
 <div class="container">
@@ -145,19 +253,27 @@
 
     <p>你已经完成了我的最后任务，也看到了那些我来不及整理完的东西。请把<span class="emphasis-red">《长垣发展关联交易》</span>、我留下的<span class="emphasis-red">加密邮件和系统日志</span>，交到<span class="emphasis-red">真正能处理这件事的人手里</span>。记住，要交给<span class="emphasis-red">能够超越臻鼎集团权力范围</span>的人。</p>
 
-    <div class="footer-area">
-        <div class="signature">
+        <div class="signature-text">
             <p>最后，谢谢你。</p>
-            <p>很抱歉把你卷进来，但也只有你能把这秘密送出去。</p>
+            <p>很抱歉把你卷进来，但也只有你能把这份秘密送出去。</p>
         </div>
+        <div class="next-chapter-teaser">
         
-    <div class="image-placeholder" id="imageLoadArea">
-        <img src="images/signature.jpg" alt="关键图片" 
-            style="width:320px; height:100px; border-radius:8px; object-fit:cover;">
+        <a href="https://www.taptap.com/user/752265767" class="teaser-hook">
+            2.0 预告：消失的不仅仅是工位
+        </a>
+
+        <div class="glitch-text">
+            下一个 404，会是你吗？江奕云。
+        </div>
     </div>
-    </div>
-    <div class="progress-indicator">35/35🎊敬请期待2.0</div>
+
+
+
+    <div class="progress-indicator">35/35🎊1.0完结</div>
 </div>
+
+
 
 </body>
 </html>
