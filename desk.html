@@ -326,14 +326,7 @@
     </style>
 </head>
 
-<nav id="game-nav">
-    <div class="nav-left">
-        <span class="status-dot"></span>
-        <span class="nav-title">🔍: <span id="clue-count">0</span> / 35</span>
-    </div>
-    <div id="clue-list" class="nav-right">
-        </div>
-</nav>
+
 <body>
 
 
@@ -565,35 +558,7 @@
                 color: "#d32f2f" 
             },
         };
-// 修改后的线索渲染函数
-function renderClue(clue) {
-  const list = document.getElementById('clue-list');
-  if (!list) return;
 
-  // 检查是否已存在该标签
-  let existingTag = document.getElementById(`tag-${clue.id}`);
-  
-  if (!existingTag) {
-    existingTag = document.createElement('a');
-    existingTag.id = `tag-${clue.id}`;
-    list.appendChild(existingTag);
-  }
-
-  existingTag.className = clue.status === 'collected' ? 'clue-tag' : 'clue-tag locked';
-  existingTag.href = clue.status === 'collected' ? clue.anchor : 'javascript:void(0)';
-  existingTag.innerText = clue.status === 'collected' ? `📎 ${clue.name}` : `🔒 未知情报...`;
-}
-
-// 联动逻辑：当玩家进入 14 页面时，自动“感知”到 15 的存在但不解锁
-function senseNextClue(nextClueId) {
-    let savedClues = JSON.parse(localStorage.getItem('myGameClues')) || [];
-    if (!savedClues.find(c => c.id === nextClueId)) {
-        const lockedClue = { id: nextClueId, name: '未知线索', status: 'locked' };
-        savedClues.push(lockedClue);
-        localStorage.setItem('myGameClues', JSON.stringify(savedClues));
-        renderClue(lockedClue);
-    }
-}
  
 function searchSpotlight() {
     const input = document.getElementById('spotlight-input');
@@ -606,21 +571,23 @@ function searchSpotlight() {
         return;
     }
 
-    // --- 记录搜索关键词到 Google Sheet ---
-    fetch("https://script.google.com/macros/s/AKfycbw2YW2wCu3_dl7j-ynmDLxHWil6CUUJxyB-mR_O9LJxsv5l_cX0tPbLbAZ7oH34ZAr-/exec", {   // 替换成你的 Apps Script Web App URL
+    // --- 记录搜索关键词 (优化后的代码，确保不阻塞搜索) ---
+    fetch("https://script.google.com/macros/s/AKfycbw2YW2wCu3_dl7j-ynmDLxHWil6CUUJxyB-mR_O9LJxsv5l_cX0tPbLbAZ7oH34ZAr-/exec", {
             method: "POST",
-            headers: { "Content-Type": "application/json" },
+            mode: 'no-cors', // 增加这一行，避免跨域报错中断逻辑
+            headers: { "Content-Type": "text/plain" }, // 改为 text/plain 绕过预检
             body: JSON.stringify({ keyword: query })
         })
-        .then(res => res.json())
-        .then(data => console.log("记录成功:", data))
+        .then(() => console.log("发送请求完成"))
         .catch(err => console.error("记录失败:", err));
-    // --- 原有搜索逻辑 ---
+
+    // --- 核心搜索逻辑 ---
     let found = false;
 
     for (const keyword in FILE_DATABASE) {
         const keywordLower = keyword.toLowerCase().trim();
 
+        // 检查输入是否完全匹配关键词
         if (keywordLower === query) {
             const dataList = Array.isArray(FILE_DATABASE[keyword])
                 ? FILE_DATABASE[keyword]
@@ -638,8 +605,10 @@ function searchSpotlight() {
                     <div class="result-icon" style="background-color: ${data.color};">
                         ${data.icon}
                     </div>
-                    <div class="result-label">${data.label}</div>
-                    <div class="result-detail">${data.type}文件</div>
+                    <div style="flex-grow:1">
+                        <div class="result-label">${data.label}</div>
+                        <div class="result-detail">${data.type}文件</div>
+                    </div>
                 `;
 
                 resultsDiv.appendChild(resultItem);
@@ -654,7 +623,6 @@ function searchSpotlight() {
         resultsDiv.innerHTML = '<div style="padding: 8px 15px; color: #666;">未找到匹配结果</div>';
     }
 }
-
 
         // 额外的功能：当搜索框失去焦点且没有输入内容时，隐藏结果框
         document.getElementById('spotlight-input').addEventListener('blur', () => {
@@ -672,15 +640,7 @@ function searchSpotlight() {
                 searchSpotlight(); 
             }
         });
-        <div class="clue-navbar">
-  <div class="clue-left">
-    线索进度：<span id="clue-count">0</span>/3
-  </div>
-  <div class="clue-right" id="clue-list">
-    <!-- JS 会往这里塞线索 -->
-  </div>
-</div>
-
+        
 
     </script>
 
